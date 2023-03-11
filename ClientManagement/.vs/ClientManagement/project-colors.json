@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5b9e1f17-946c-423a-9a27-8edc9341d243": {
+      "ProjectGuid": "5b9e1f17-946c-423a-9a27-8edc9341d243",
+      "DisplayName": "Application",
+      "ColorIndex": 0
+    },
+    "b8610c9f-d644-4b4c-b72a-4414eebe3ac9": {
+      "ProjectGuid": "b8610c9f-d644-4b4c-b72a-4414eebe3ac9",
+      "DisplayName": "Domain",
+      "ColorIndex": 1
+    },
+    "2e806140-b283-426b-8a47-350165517edb": {
+      "ProjectGuid": "2e806140-b283-426b-8a47-350165517edb",
+      "DisplayName": "Infra",
+      "ColorIndex": 2
+    },
+    "7fca443d-6b97-4754-a37f-b7400638de01": {
+      "ProjectGuid": "7fca443d-6b97-4754-a37f-b7400638de01",
+      "DisplayName": "Service",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Application</name>
+    </assembly>
+    <members>
+        <member name="M:Application.Controllers.ClientePessoaFisicaController.Create(Application.DTOs.Request.ClientePessoaFisicaRequestDTO)">
+             <summary>
+             Cria um novo Cliente Pessoa Fisica.
+             </summary>
+             <remarks>
+             Descrição:
+             
+                 Cria um novo Cliente Pessoa Fisica.
+                 POST /api/ClientePessoaFisica
+                 
+             Exemplo:
+             
+                 {
+                    "nome": "example",
+                    "cpf": "00000000000",
+                    "nascimento": "2023-03-13",
+                    "ocupacao": "test",
+                    "email": "test@test.com",
+                    "telefone": "00000000000",
+                    "enderecoId": 5,
+                    "descricao": "very good example"
+                 }
+            
+             </remarks>
+             <returns>Um novo item criado</returns>
+             <response code="200">Um novo item foi criado.</response>
+             <response code="400">A requisição possui um ou mais erros de validação.</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaFisicaController.Update(System.Int64,Application.DTOs.Request.ClientePessoaFisicaRequestDTO)">
+            <summary>
+            Atualiza os dados de um Cliente Pessoa Fisica.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Atualiza os dados de um Cliente Pessoa Fisica.
+                PUT /api/ClientePessoaFisica/{id}
+                
+            id
+            
+                2
+                
+            Exemplo:
+            
+                {
+                   "nome": "example",
+                   "cpf": "00000000000",
+                   "nascimento": "2023-03-13",
+                   "ocupacao": "test",
+                   "email": "test@test.com",
+                   "telefone": "00000000000",
+                   "enderecoId": 5,
+                   "descricao": "very good example"
+                }
+                
+            </remarks>
+            <returns>O item foi atualizado.</returns>
+            <response code="200">O item foi atualizado.</response>
+            <response code="400">A requisição possui um ou mais erros de validação.</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaFisicaController.Delete(System.Int64)">
+            <summary>
+            Deleta um Cliente Pessoa Fisica.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Deleta um Cliente Pessoa Fisica.
+                DELETE /api/ClientePessoaFisica/{id}
+                
+            id
+            
+                1
+                
+            </remarks>
+            <response code="204">Remoção realizada</response>
+            <response code="404">Cliente não existe</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaFisicaController.Get">
+             <summary>
+             Retorna uma lista com todos os Clientes Pessoas Físicas.
+             </summary>
+             <remarks>
+             Descrição:
+            
+                 GET /api/ClientePessoaFisica
+                 Retorna uma lista com todos os Clientes Pessoas Físicas.
+            
+             </remarks>
+             <response code="200">Retorna uma lista com todos os Clientes Pessoas Físicas.</response>
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaFisicaController.Get(System.Int64)">
+             <summary>
+             Retorna um Cliente correspondente ao id passado como parâmetro.
+             </summary>
+             <remarks>
+             Descrição:
+             
+                 GET /api/ClientePessoaFisica/{id}
+                 Retorna um Cliente Pessoa Fisica correspondente ao id passado como parâmetro
+             
+             Id Exemplo:
+            
+                 1
+            
+             </remarks>
+             <response code="200">Retorna o Cliente correspondente ao id pesquisado</response>
+             <response code="204">Se o valor pesquisado não for encontrado</response>
+             <response code="404">Se o valor pesquisado não for válido</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaJuridicaController.Create(Application.DTOs.Request.ClientePessoaJuridicaRequestDTO)">
+             <summary>
+             Cria um novo Cliente Pessoa Juridica.
+             </summary>
+             <remarks>
+             Descrição:
+             
+                 Cria um novo Cliente Pessoa Juridica.
+                 POST /api/ClientePessoaJuridica
+                 
+             Exemplo:
+             
+                 {
+                    "razaoSocial": "string",
+                    "nomeFantasia": "string",
+                    "cnpj": "string",
+                    "fundacao": "2023-03-10T21:22:21.842Z",
+                    "contatoNome": "string",
+                    "telefone": "string",
+                    "enderecoId": 0,
+                    "descricao": "string"
+                 }
+            
+             </remarks>
+             <returns>Um novo item criado</returns>
+             <response code="200">Um novo item foi criado.</response>
+             <response code="400">A requisição possui um ou mais erros de validação.</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaJuridicaController.Update(System.Int64,Application.DTOs.Request.ClientePessoaJuridicaRequestDTO)">
+            <summary>
+            Atualiza os dados de um Cliente Pessoa Juridica.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Atualiza os dados de um Cliente Pessoa Juridica.
+                PUT /api/ClientePessoaJuridica/{id}
+                
+            id
+            
+                2
+                
+            Exemplo:
+            
+                {
+                   "razaoSocial": "string",
+                   "nomeFantasia": "string",
+                   "cnpj": "string",
+                   "fundacao": "2023-03-10T21:22:21.842Z",
+                   "contatoNome": "string",
+                   "telefone": "string",
+                   "enderecoId": 0,
+                   "descricao": "string"
+                }
+                
+            </remarks>
+            <returns>O item foi atualizado.</returns>
+            <response code="200">O item foi atualizado.</response>
+            <response code="400">A requisição possui um ou mais erros de validação.</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaJuridicaController.Delete(System.Int64)">
+            <summary>
+            Deleta um Cliente Pessoa Juridica.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Deleta um Cliente Pessoa Juridica.
+                DELETE /api/ClientePessoaJuridica/{id}
+                
+            id
+            
+                1
+                
+            </remarks>
+            <response code="204">Remoção realizada</response>
+            <response code="404">Cliente não existe</response> 
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaJuridicaController.Get">
+             <summary>
+             Retorna uma lista com todos os Clientes Pessoas Juridicas.
+             </summary>
+             <remarks>
+             Descrição:
+            
+                 GET /api/ClientePessoaJuridica
+                 Retorna uma lista com todos os Clientes Pessoas Juridicas.
+            
+             </remarks>
+             <response code="200">Retorna uma lista com todos os Clientes Pessoas Juridicas.</response>
+        </member>
+        <member name="M:Application.Controllers.ClientePessoaJuridicaController.Get(System.Int64)">
+             <summary>
+             Retorna um Cliente correspondente ao id passado como parâmetro.
+             </summary>
+             <remarks>
+             Descrição:
+             
+                 GET /api/ClientePessoaJuridica/{id}
+                 Retorna um Cliente Pessoa Juridica correspondente ao id passado como parâmetro
+             
+             Id Exemplo:
+            
+                 1
+            
+             </remarks>
+             <response code="200">Retorna o Cliente correspondente ao id pesquisado</response>
+             <response code="204">Se o valor pesquisado não for encontrado</response>
+             <response code="404">Se o valor pesquisado não for válido</response> 
+        </member>
+        <member name="M:Application.Controllers.EnderecoController.Create(Application.DTOs.Request.EnderecoRequestDTO)">
+            <summary>
+            Cria um novo Endereco.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Cria um novo Endereco.
+                POST /api/Endereco
+                
+            Exemplo:
+            
+                {   
+                   "cep": "00000000",
+                   "logradouro": "Rua Teste, 000",
+                   "complemento": "Apto 000",
+                   "bairro": "Liberdade",
+                   "cidade": "São Paulo",
+                   "uf": "SP"
+                }
+                
+            </remarks>
+            <returns>Um novo item criado</returns>
+            <response code="200">Um novo item foi criado.</response>
+            <response code="400">A requisição possui um ou mais erros de validação.</response> 
+        </member>
+        <member name="M:Application.Controllers.EnderecoController.Update(System.Int64,Application.DTOs.Request.EnderecoRequestDTO)">
+            <summary>
+            Atualiza os dados de um Endereco.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Atualiza os dados de um Endereco.
+                PUT /api/Endereco/{id}
+                
+            id
+            
+                2
+                
+            Exemplo:
+            
+                {   
+                   "cep": "00000000",
+                   "logradouro": "Rua Teste, 000",
+                   "complemento": "Apto 000",
+                   "bairro": "Liberdade",
+                   "cidade": "São Paulo",
+                   "uf": "SP"
+                }
+                
+            </remarks>
+            <returns>O item foi atualizado.</returns>
+            <response code="200">O item foi atualizado.</response>
+            <response code="400">A requisição possui um ou mais erros de validação.</response> 
+        </member>
+        <member name="M:Application.Controllers.EnderecoController.Delete(System.Int64)">
+            <summary>
+            Deleta um Endereco.
+            </summary>
+            <remarks>
+            Descrição:
+            
+                Deleta um Endereco.
+                DELETE /api/Endereco/{id}
+                
+            id
+            
+                1
+                
+            </remarks>
+            <response code="204">Remoção realizada</response>
+            <response code="404">Endereco não existe</response> 
+        </member>
+        <member name="M:Application.Controllers.EnderecoController.Get">
+             <summary>
+             Retorna uma lista com todos os Enderecos.
+             </summary>
+             <remarks>
+             Descrição:
+            
+                 GET /api/Enderecos
+                 Retorna uma lista com todos os Enderecos.
+            
+             </remarks>
+             <response code="200">Retorna uma lista com todos os Enderecos.</response>
+        </member>
+        <member name="M:Application.Controllers.EnderecoController.Get(System.Int64)">
+             <summary>
+             Retorna um Endereco correspondente ao id passado como parâmetro.
+             </summary>
+             <remarks>
+             Descrição:
+             
+                 GET /api/Endereco/{id}
+                 Retorna um Endereco correspondente ao id passado como parâmetro
+             
+             Id Exemplo:
+            
+                 1
+            
+             </remarks>
+             <response code="200">Retorna o Endereço correspondente ao id pesquisado</response>
+             <response code="204">Se o valor pesquisado não for encontrado</response>
+             <response code="404">Se o valor pesquisado não for válido</response> 
+        </member>
+    </members>
+</doc>
