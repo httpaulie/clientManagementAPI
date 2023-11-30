@@ -65,11 +65,11 @@ builder.Services.AddSingleton(new MapperConfiguration(config =>
 
 var app = builder.Build();
 
-/*if (app.Environment.IsDevelopment())
-{*/
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-//} IF COMENTADO PARA PUBLICAÇÃO, SE DESEJA UTILIZAR EM AMBIENTE DE DESENVOLVIMENTO, DESCOMENTE
+}
 
 app.UseHttpsRedirection();
 
