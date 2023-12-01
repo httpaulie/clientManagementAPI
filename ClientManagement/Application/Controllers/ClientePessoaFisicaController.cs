@@ -3,6 +3,7 @@ using Application.DTOs.Response;
 using Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services;
 using Service.Services.Interfaces;
 using Service.Validators;
 
@@ -210,7 +211,7 @@ namespace Application.Controllers
         //METODO ESTATICO APENAS PARA A CADEIRA DE POO
         private static int GetTotalPessoaFisica()
         {
-            int totalEntidades = _totalPessoaFisica;
+            int totalEntidades = _totalPessoaFisica;            
             return totalEntidades;
         }
 
