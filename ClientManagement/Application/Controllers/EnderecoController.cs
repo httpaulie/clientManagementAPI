@@ -1,8 +1,10 @@
 ﻿using Application.DTOs.Request;
 using Application.DTOs.Response;
 using Domain.Models;
+using Infra.Data.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services;
 using Service.Services.Interfaces;
 using Service.Validators;
 
@@ -14,6 +16,9 @@ namespace Application.Controllers
     {
         private IBaseService<Endereco> _baseEnderecoService;
         private IEnderecoServices _enderecoService;
+        
+        //APENAS PARA A CADEIRA DE POO
+        public static int _totalEnderecos = 2;
 
         public EnderecoController(IBaseService<Endereco> baseEnderecoService, IEnderecoServices enderecoService)
         {
@@ -52,6 +57,8 @@ namespace Application.Controllers
         {
             if (endereco == null)
                 return NotFound();
+            else
+                _totalEnderecos++;
 
             return await ExecuteAsync(async () => await _baseEnderecoService
                 .AddAsync<EnderecoRequestDTO, IdResponseDTO, EnderecoValidator>(endereco));
@@ -120,6 +127,8 @@ namespace Application.Controllers
         {
             if (id <= 0)
                 return NotFound();
+            else
+                _totalEnderecos--;
 
             await ExecuteAsync(async () =>
             {
@@ -175,6 +184,33 @@ namespace Application.Controllers
                 return NotFound();
 
             return await ExecuteAsync(async () => await _enderecoService.GetByIdAsync<EnderecoGetByIdResponseDTO>(id));
+        }
+
+        //APENAS PARA A CADEIRA DE POO
+        /// <summary>
+        /// Retorna o número total de endereços criados.
+        /// </summary>
+        /// <remarks>
+        /// Descrição:
+        /// 
+        ///     GET /api/Endereco/totalEnderecos
+        ///     Retorna o número total de endereços criados
+        /// 
+        ///
+        /// </remarks>
+        /// <response code="200">Retorna o valor correspondente</response>
+        [HttpGet("totalEnderecos")]
+        public IActionResult ObterTotalEnderecos()
+        {
+            var totalEntidades = GetTotalEnderecos();
+            return new JsonResult(totalEntidades);
+        }
+
+        //METODO ESTATICO APENAS PARA A CADEIRA DE POO
+        private static int GetTotalEnderecos()
+        {
+            int totalEntidades = _totalEnderecos;
+            return totalEntidades;
         }
 
         private async Task<IActionResult> ExecuteAsync(Func<Task<object>> func)

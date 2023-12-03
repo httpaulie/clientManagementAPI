@@ -3,6 +3,7 @@ using Application.DTOs.Response;
 using Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services;
 using Service.Services.Interfaces;
 using Service.Validators;
 
@@ -14,6 +15,8 @@ namespace Application.Controllers
     {
         private IBaseService<ClientePessoaFisica> _baseClientePessoaFisicaService;
         private IClientePessoaFisicaServices _clientePessoaFisicaService;
+
+        public static int _totalPessoaFisica = 1;
 
         public ClientePessoaFisicaController(IBaseService<ClientePessoaFisica> baseClientePessoaFisicaService, IClientePessoaFisicaServices clientePessoaFisicaService)
         {
@@ -54,6 +57,8 @@ namespace Application.Controllers
         {
             if (client == null)
                 return NotFound();
+            else
+                _totalPessoaFisica++;
 
             return await ExecuteAsync(async () => await _baseClientePessoaFisicaService
                 .AddAsync<ClientePessoaFisicaRequestDTO, IdResponseDTO, ClientePessoaFisicaValidator>(client));
@@ -124,6 +129,8 @@ namespace Application.Controllers
         {
             if (id <= 0)
                 return NotFound();
+            else
+                _totalPessoaFisica--;
 
             await ExecuteAsync(async () =>
             {
@@ -179,6 +186,33 @@ namespace Application.Controllers
                 return NotFound();
 
             return await ExecuteAsync(async () => await _clientePessoaFisicaService.GetByIdAsync<ClientePessoaFisicaGetByIdResponseDTO>(id));
+        }
+
+        //APENAS PARA A CADEIRA DE POO
+        /// <summary>
+        /// Retorna o número total de Cliente Pessoa Fisica criados.
+        /// </summary>
+        /// <remarks>
+        /// Descrição:
+        /// 
+        ///     GET /api/Endereco/totalPessoaFisica
+        ///     Retorna o número total de Cliente Pessoa Fisica criados
+        /// 
+        ///
+        /// </remarks>
+        /// <response code="200">Retorna o valor correspondente</response>
+        [HttpGet("totalPessoaFisica")]
+        public IActionResult ObterTotalPessoaFisica()
+        {
+            var totalEntidades = GetTotalPessoaFisica();
+            return new JsonResult(totalEntidades);
+        }
+
+        //METODO ESTATICO APENAS PARA A CADEIRA DE POO
+        private static int GetTotalPessoaFisica()
+        {
+            int totalEntidades = _totalPessoaFisica;            
+            return totalEntidades;
         }
 
         private async Task<IActionResult> ExecuteAsync(Func<Task<object>> func)

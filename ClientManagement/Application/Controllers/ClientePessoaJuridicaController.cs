@@ -15,6 +15,8 @@ namespace Application.Controllers
         private IBaseService<ClientePessoaJuridica> _baseClientePessoaJuridicaService;
         private IClientePessoaJuridicaServices _clientePessoaJuridicaService;
 
+        public static int _totalPessoaJuridica = 1;
+
         public ClientePessoaJuridicaController(IBaseService<ClientePessoaJuridica> baseClientePessoaJuridicaService, IClientePessoaJuridicaServices clientePessoaJuridicaService)
         {
             _baseClientePessoaJuridicaService = baseClientePessoaJuridicaService;
@@ -54,6 +56,8 @@ namespace Application.Controllers
         {
             if (client == null)
                 return NotFound();
+            else
+                _totalPessoaJuridica++;
 
             return await ExecuteAsync(async () => await _baseClientePessoaJuridicaService
                 .AddAsync<ClientePessoaJuridicaRequestDTO, IdResponseDTO, ClientePessoaJuridicaValidator>(client));
@@ -124,6 +128,8 @@ namespace Application.Controllers
         {
             if (id <= 0)
                 return NotFound();
+            else
+                _totalPessoaJuridica--;
 
             await ExecuteAsync(async () =>
             {
@@ -179,6 +185,33 @@ namespace Application.Controllers
                 return NotFound();
 
             return await ExecuteAsync(async () => await _clientePessoaJuridicaService.GetByIdAsync<ClientePessoaJuridicaGetByIdResponseDTO>(id));
+        }
+
+        //APENAS PARA A CADEIRA DE POO
+        /// <summary>
+        /// Retorna o número total de Cliente Pessoa Jurídica criados.
+        /// </summary>
+        /// <remarks>
+        /// Descrição:
+        /// 
+        ///     GET /api/Endereco/totalPessoaJuridica
+        ///     Retorna o número total de Cliente Pessoa Jurídica criados
+        /// 
+        ///
+        /// </remarks>
+        /// <response code="200">Retorna o valor correspondente</response>
+        [HttpGet("totalPessoaJuridica")]
+        public IActionResult ObterTotalPessoaJuridica()
+        {
+            var totalEntidades = GetTotalPessoaJuridica();
+            return new JsonResult(totalEntidades);
+        }
+
+        //METODO ESTATICO APENAS PARA A CADEIRA DE POO
+        private static int GetTotalPessoaJuridica()
+        {
+            int totalEntidades = _totalPessoaJuridica;
+            return totalEntidades;
         }
 
         private async Task<IActionResult> ExecuteAsync(Func<Task<object>> func)
